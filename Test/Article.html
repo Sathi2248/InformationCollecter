@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add New Article </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #routes_container {
+            position: relative;
+        }
+
+        .route {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .remove_route {
+            position: absolute;
+            top: -18px;
+            right: 0;
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add_rout,
+        .add_place {
+            float: right;
+            background-color: #2196F3;
+            color: white;
+            margin-top: -18px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .add_rout,
+        .remove_route {
+            margin-right: 10px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            form {
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+            }
+        }
+
+
+
+        /* saggestions  */
+
+        .suggestion-list {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        .suggestion-item {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f2f2f2;
+        }
+
+        .remove {
+            margin-bottom: 10px;
+            border-radius: 5px;
+            color: white;
+            background-color: red;
+            padding: 5px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        #best_time_start,
+        #best_time_end {
+            width: 45%;
+            margin-right: 10px;
+        }
+
+        /* CSS for submit button */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* CSS for responsive layout */
+        @media only screen and (max-width: 600px) {
+
+
+            #best_time_start,
+            #best_time_end {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        .months {
+            margin-bottom: 15px;
+        }
+
+        .place-container {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            position: relative;
+            /* Add position relative */
+        }
+
+        .place-container h4 {
+            margin-top: 0;
+        }
+
+        .place-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .place-container input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn-container {
+            text-align: right;
+            position: absolute;
+            /* Add position absolute */
+            top: 0;
+            /* Add top position */
+            right: 0;
+            /* Add right position */
+        }
+
+        .btn-container button {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 0px 0px 0px 5px;
+        }
+
+        .add-btn {
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            float: right;
+            /* Add float right */
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <h1>Add New Article </h1>
+
+    <form id="project_form" method="post" action="ok.html">
+        <label for="place_name" class="">Place Name:</label>
+        <input type="text" id="place_name" name="place_name" placeholder="Place Name :" required>
+
+        <label for="place_id">Group Id:</label>
+        <input type="text" id="place_id" name="place_id" placeholder="Group Id:" required>
+
+        <label for="link">Image Link:</label>
+        <input type="text" id="link" name="Image" placeholder="Add Image Link..">
+
+
+        <div class="months">
+            <label>Best Time:</label>
+            <select id="best_time_start" name="best_time_start" required>
+                <option value="" disabled selected>Select start month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <span>To</span>
+            <select id="best_time_end" name="best_time_end" required>
+                <option value="" disabled selected>Select end month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+
+        </div>
+
+
+        <label for="Tipes">Article:</label>
+        <textarea id="Tipes" name="article" placeholder="Write Article Here....." required></textarea>
+
+
+        <label for="tips">Tips:</label>
+        <input type="text" id="tips" name="tips" required>
+
+
+        <label for="article">Safety Measures:</label>
+        <textarea id="article" name="Tipes" required></textarea>
+
+        <label for="route">Add Routes:</label>
+
+        <input type="text" id="route_1" name="routes1[]" required placeholder="By Road..">
+        <input type="text" id="route_1" name="routes1[]" placeholder="Local Transport..">
+        <input type="text" id="route_1" name="routes1[]" placeholder="By Train..">
+
+
+
+        <label for="time">Time Reqired:</label>
+        <input type="text" id="time" name="Time_required" required>
+
+
+        <label for="link">Videos Link:</label>
+        <input type="text" id="link" name="link" placeholder="Kannada">
+
+        <input type="text" id="link" name="link" placeholder="English">
+
+        <input type="text" id="link" name="link" placeholder="Hindi">
+
+        <input type="text" id="link" name="link" placeholder="Tamil">
+
+        <input type="text" id="link" name="link" placeholder="Telugu">
+
+        <h4 style="text-decoration: underline;">PDF Link:</h4>
+        <input type="text" id="pdf_link" name="pdf_link" placeholder="PDF Link" required>
+
+        <!-- side Bar  -->
+
+        <div id="nearest_places">
+            <h4>Nearest Places :</h4>
+            <div class="place-container" data-place="1">
+                <h4>Place 1:</h4>
+                <label for="s_name_1">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[]" required oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[]" placeholder="Place Title.." required>
+
+
+                <label for="image_link_1">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[]" placeholder="Image Link.." required>
+
+
+
+                <div class="btn-container">
+                    <button class="remove-btn" onclick="removePlace(this)">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="add-btn" onclick="addPlace()">Add Place</button>
+
+        <p id="max-places-msg" class="max-places-message" style="display: none;">Maximum number of places (10) reached.
+        </p>
+
+        <br>
+        <br>
+
+
+        <!-- tag Places -->
+        <div id="nearest_places_container">
+            <label>Tag Explore Places:</label>
+            <div class="place">
+                <input type="text" name="nearest_places[]" required oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button>
+            </div>
+        </div>
+        <button class="add_place" type="button" onclick="add_ne_place()">Add Place</button><br><br>
+        
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+       
+
+    </script>
+
+    <script>
+            // Function to add a new place input field
+    function add_ne_place() {
+        var container = document.getElementById('nearest_places_container');
+        var currentPlaces = container.getElementsByClassName('place');
+
+        // Check if the maximum limit of 15 places is reached
+        if (currentPlaces.length >= 15) {
+            alert('You have reached the maximum limit of 15 places.');
+            return;
+        }
+
+        var placeDiv = document.createElement('div');
+        placeDiv.className = 'place';
+
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'nearest_places[]';
+        input.required = true;
+        input.oninput = function () {
+            showSuggestions(this);
+        };
+
+        var suggestionList = document.createElement('div');
+        suggestionList.className = 'suggestion-list';
+
+        var removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.innerHTML = 'Remove';
+        removeBtn.onclick = function () {
+            Tag_place_remove(placeDiv);
+        };
+
+        placeDiv.appendChild(input);
+        placeDiv.appendChild(suggestionList);
+        placeDiv.appendChild(removeBtn);
+        container.appendChild(placeDiv);
+    }
+
+    // Function to remove a place input field
+    function Tag_place_remove(placeDiv) {
+        placeDiv.parentNode.removeChild(placeDiv);
+    }
+
+    // Function to show autocomplete suggestions for nearest places
+    function showSuggestions(input) {
+        var inputValue = input.value.trim();
+        var suggestionList = input.parentNode.querySelector('.suggestion-list');
+
+        // Clear previous suggestions
+        suggestionList.innerHTML = '';
+
+            // List of suggestion places
+            var suggestionPlaces = [
+                "Mysore Palace",
+                "Hampi",
+                "Coorg",
+                "Jog Falls",
+                "Gokarna",
+                "Bangalore (Bengaluru)",
+                "Badami",
+                "Belur and Halebidu",
+                "Chikmagalur",
+                "Bandipur National Park",
+                "Udupi and Manipal",
+                "Aihole",
+                "Pattadakal",
+                "Karwar",
+                "Srirangapatna",
+                "Shravanabelagola",
+                "Talakadu",
+                "Chitradurga Fort",
+                "Bijapur (Vijayapura)",
+                "Murudeshwar",
+                "Nandi Hills",
+                "Hassan",
+                "Kabini River",
+                "Ranganathittu Bird Sanctuary",
+                "Tumkur",
+                "Shivanasamudra Falls",
+                "Dandeli Wildlife Sanctuary",
+                "Kudremukh National Park",
+                "Malpe Beach",
+                "Nagarhole National Park",
+                "Hogenakkal Falls",
+                "Shringeri",
+                "Kundapura",
+                "Agumbe",
+                "Somnathpur",
+                "Mudumalai National Park",
+                "Muthyala Maduvu (Pearl Valley)",
+                "Biligiriranga Hills (BR Hills)",
+                "Melukote",
+                "Yana Rocks",
+                "Manjarabad Fort",
+                "Sakleshpur",
+                "Gommateshwara Statue, Shravanabelagola",
+                "Kolar",
+                "Madikeri (Mercara)",
+                "Kempegowda Museum",
+                "Chunchi Falls",
+                "Dandeli",
+                "Maravanthe Beach",
+                "Kukke Subramanya Temple"
+            ];
+
+            suggestionPlaces.forEach(function (suggestion) {
+            if (suggestion.toLowerCase().startsWith(inputValue.toLowerCase())) {
+                var suggestionItem = document.createElement('div');
+                suggestionItem.className = 'suggestion-item';
+                suggestionItem.innerHTML = suggestion;
+                suggestionItem.onclick = function () {
+                    input.value = suggestion;
+                    suggestionList.innerHTML = '';
+                };
+                suggestionList.appendChild(suggestionItem);
+            }
+        });
+
+        if (inputValue === '') {
+            suggestionList.innerHTML = '';
+        }
+    }
+
+
+        // side bar Nearest place saggestion
+
+    </script>
+    <!-- side bar add place script -->
+    <script>
+        let placeCount = 0;
+
+        function addPlace() {
+            if (placeCount >= 10) {
+                document.getElementById("max-places-msg").style.display = "block";
+                return; // Maximum 10 places allowed
+            }
+
+            placeCount++;
+
+            const placeContainer = document.createElement("div");
+            placeContainer.classList.add("place-container");
+            placeContainer.setAttribute("data-place", placeCount);
+
+            const placeHeading = document.createElement("h4");
+            placeHeading.innerText = `Place ${placeCount}:`;
+
+            const nameLabel = document.createElement("label");
+            nameLabel.setAttribute("for", `s_name_${placeCount}`);
+            nameLabel.innerText = "Place Name:";
+
+            const nameInput = document.createElement("input");
+            nameInput.setAttribute("type", "text");
+            nameInput.setAttribute("id", `s_name_${placeCount}`);
+            nameInput.setAttribute("name", "s_placename[]");
+            nameInput.setAttribute("required", "required");
+            nameInput.setAttribute("oninput", "showSuggestions(this)");
+            nameInput.setAttribute("placeholder", "Place Name..");
+
+            const suggestionList = document.createElement("div");
+            suggestionList.classList.add("suggestion-list");
+
+            const imageLabel = document.createElement("label");
+            imageLabel.setAttribute("for", `image_link_${placeCount}`);
+            imageLabel.innerText = "Image Link:";
+
+            const imageInput = document.createElement("input");
+            imageInput.setAttribute("type", "text");
+            imageInput.setAttribute("id", `image_link_${placeCount}`);
+            imageInput.setAttribute("name", "image_link[]");
+            imageInput.setAttribute("placeholder", "Image Link..");
+            imageInput.setAttribute("required", "required");
+
+            const titleLabel = document.createElement("label");
+            titleLabel.setAttribute("for", `place_title_${placeCount}`);
+            titleLabel.innerText = "Place Title:";
+
+            const titleInput = document.createElement("input");
+            titleInput.setAttribute("type", "text");
+            titleInput.setAttribute("id", `place_title_${placeCount}`);
+            titleInput.setAttribute("name", "place_title[]");
+            titleInput.setAttribute("placeholder", "Place Title..");
+            titleInput.setAttribute("required", "required");
+
+            const btnContainer = document.createElement("div");
+            btnContainer.classList.add("btn-container");
+
+            const removeButton = document.createElement("button");
+            removeButton.classList.add("remove-btn");
+            removeButton.innerText = "Remove";
+            removeButton.addEventListener("click", () => {
+                placeContainer.remove();
+                updatePlaceNumbers();
+                document.getElementById("max-places-msg").style.display = "none";
+            });
+
+            placeContainer.appendChild(placeHeading);
+            placeContainer.appendChild(nameLabel);
+            placeContainer.appendChild(nameInput);
+            placeContainer.appendChild(suggestionList);
+            placeContainer.appendChild(imageLabel);
+            placeContainer.appendChild(imageInput);
+            placeContainer.appendChild(titleLabel);
+            placeContainer.appendChild(titleInput);
+            btnContainer.appendChild(removeButton);
+            placeContainer.appendChild(btnContainer);
+
+            document.getElementById("nearest_places").appendChild(placeContainer);
+
+            updatePlaceNumbers();
+        }
+
+        function updatePlaceNumbers() {
+            const placeContainers = document.querySelectorAll(".place-container");
+            placeContainers.forEach((container, index) => {
+                container.setAttribute("data-place", index + 1);
+                container.querySelector("h4").innerText = `Place ${index + 1}:`;
+            });
+        }
+
+        function removePlace(button) {
+            const placeContainer = button.closest(".place-container");
+            placeContainer.remove();
+            updatePlaceNumbers();
+            document.getElementById("max-places-msg").style.display = "none";
+        }
+    </script>
+
+
+<script>
+    function validateForm() {
+        // Form validation code...
+
+        return true; // Form is valid
+    }
+
+    // Submit form when Enter key is pressed
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            if (validateForm()) {
+                // Form is valid, submit to the backend
+                // Replace 'process_form.php' with the actual URL or file name to handle the form submission
+                document.getElementById("project_form").action = "process_form.php";
+                document.getElementById("project_form").submit();
+            } else {
+                alert("Form validation failed. Please check the form fields.");
+            }
+        }
+    });
+
+    // Remove place function
+    function removePlace(button) {
+        var placeContainer = button.parentNode.parentNode;
+        if (placeContainer.getAttribute("data-place") !== "1") {
+            placeContainer.remove();
+        } else {
+            alert("Cannot remove initial place.");
+        }
+    }
+</script>
+<!-- validate -->
+<script>
+    function validateForm() {
+        // Place Name validation
+        var placeName = document.getElementById("place_name").value;
+        if (placeName.length < 3) {
+            alert("Place Name should have at least 3 letters.");
+            return false;
+        }
+        if (placeName.length > 45) {
+            alert("Place Name should not exceed 45 characters.");
+            return false;
+        }
+
+        // Group Id validation
+        var groupId = document.getElementById("place_id").value;
+        if (groupId.length < 6 || !/^[A-Za-z]{4}[0-9]+$/.test(groupId)) {
+            alert("Group Id should have at least 6 characters, starting with 4 alphabets and followed by numerals.");
+            return false;
+        }
+        if (groupId.includes(" ")) {
+            alert("Group Id should not contain spaces.");
+            return false;
+        }
+
+        // Image Link validation
+        var imageLink = document.getElementById("link").value;
+        if (imageLink.trim() === "") {
+            alert("Image Link is required.");
+            return false;
+        }
+
+        // Place Title validation
+        var placeTitle = document.getElementById("place_title_1").value;
+        if (placeTitle.length > 80) {
+            alert("Place Title should not exceed 80 characters.");
+            return false;
+        }
+
+        // Best Time validation
+        var bestTimeStart = document.getElementById("best_time_start").value;
+        var bestTimeEnd = document.getElementById("best_time_end").value;
+        if (bestTimeStart === bestTimeEnd) {
+            alert("Best Time start and end months should not be the same.");
+            return false;
+        }
+
+        // Article validation
+        var article = document.getElementById("Tipes").value;
+        if (article.trim() === "") {
+            alert("Article is required.");
+            return false;
+        }
+
+        // Safety Measures validation
+        var safetyMeasures = document.getElementById("article").value;
+        if (safetyMeasures.trim() === "") {
+            alert("Safety Measures is required.");
+            return false;
+        }
+
+        // PDF Link validation
+        var pdfLink = document.getElementById("pdf_link").value;
+        if (pdfLink.trim() === "") {
+            alert("PDF Link is required.");
+            return false;
+        }
+
+        return true; // Form is valid
+    }
+
+     // Submit form when Enter key is pressed
+     document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            if (validateForm()) {
+                // Form is valid, submit to the backend
+                // Replace 'process_form.php' with the actual URL or file name to handle the form submission
+                document.getElementById("project_form").action = "process_form.php";
+                document.getElementById("project_form").submit();
+            } else {
+                alert("Form validation failed. Please check the form fields.");
+            }
+        }
+    });
+       // Form submission on Submit button click
+       document.getElementById("project_form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        if (validateForm()) {
+            // Form is valid, redirect to the successful.html page
+            window.location.href = "ok.html";
+        } else {
+            alert("Form validation failed. Please check the form fields.");
+        }
+    });
+</script>
+
+
+
+</body>
+
+</html>
