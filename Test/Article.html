@@ -659,8 +659,10 @@
             alert("Group Id should have at least 6 characters, starting with 4 alphabets and followed by numerals.");
             return false;
         }
-        if (groupId.includes(" ")) {
-            alert("Group Id should not contain spaces.");
+
+        // Check for special characters and spaces in Group Id
+        if (/[^\w\d]/.test(groupId)) {
+            alert("Group Id should not contain special characters or spaces.");
             return false;
         }
 
