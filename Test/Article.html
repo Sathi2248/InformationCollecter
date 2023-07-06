@@ -225,6 +225,9 @@
             margin-bottom: 10px;
             border-radius: 5px;
         }
+        .Place_ss{
+            font-size: 16px;
+        }
     </style>
 
 
@@ -325,17 +328,17 @@
         <div id="nearest_places">
             <h4>Nearest Places :</h4>
             <div class="place-container" data-place="1">
-                <h4>Place 1:</h4>
-                <label for="s_name_1">Place Name:</label>
+                <h4 class="Place_ss">Place 1:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
                 <input type="text" id="s_name_1" name="s_placename[]" required oninput="showSuggestions(this)"
                     placeholder="Place Name..">
                 <div class="suggestion-list"></div>
 
-                <label for="place_title_1">Place Title:</label>
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
                 <input type="text" id="place_title_1" name="place_title[]" placeholder="Place Title.." required>
 
 
-                <label for="image_link_1">Image Link:</label>
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
                 <input type="text" id="image_link_1" name="image_link[]" placeholder="Image Link.." required>
 
 
