@@ -225,7 +225,8 @@
             margin-bottom: 10px;
             border-radius: 5px;
         }
-        .Place_ss{
+
+        .Place_ss {
             font-size: 16px;
         }
     </style>
@@ -242,12 +243,11 @@
         <label for="place_name" class="">Place Name:</label>
         <input type="text" id="place_name" name="place_name" placeholder="Place Name :" required>
 
-        <label for="place_id">Group Id:</label>
-        <input type="text" id="place_id" name="place_id" placeholder="Group Id:" required>
+        <label for="group_id">Group Id:</label>
+        <input type="text" id="group_id" name="group_id" placeholder="Group Id:" required>
 
         <label for="link">Image Link:</label>
-        <input type="text" id="link" name="Image" placeholder="Add Image Link..">
-
+        <input type="text" id="link" name="main_image_link" placeholder="Add Image Link..">
 
         <div class="months">
             <label>Best Time:</label>
@@ -285,7 +285,6 @@
 
         </div>
 
-
         <label for="Tipes">Article:</label>
         <textarea id="Tipes" name="article" placeholder="Write Article Here....." required></textarea>
 
@@ -299,26 +298,24 @@
 
         <label for="route">Add Routes:</label>
 
-        <input type="text" id="route_1" name="routes1[]" required placeholder="By Road..">
-        <input type="text" id="route_1" name="routes1[]" placeholder="Local Transport..">
-        <input type="text" id="route_1" name="routes1[]" placeholder="By Train..">
-
-
+        <input type="text" id="route_1" name="routes1" required placeholder="By Road..">
+        <input type="text" id="route_1" name="routes2" placeholder="Local Transport..">
+        <input type="text" id="route_1" name="routes3" placeholder="By Train..">
 
         <label for="time">Time Reqired:</label>
         <input type="text" id="time" name="Time_required" required>
 
 
         <label for="link">Videos Link:</label>
-        <input type="text" id="link" name="link" placeholder="Kannada">
+        <input type="text" id="link" name="Kannada" placeholder="Kannada">
 
-        <input type="text" id="link" name="link" placeholder="English">
+        <input type="text" id="link" name="English" placeholder="English">
 
-        <input type="text" id="link" name="link" placeholder="Hindi">
+        <input type="text" id="link" name="Hindi" placeholder="Hindi">
 
-        <input type="text" id="link" name="link" placeholder="Tamil">
+        <input type="text" id="link" name="Tamil" placeholder="Tamil">
 
-        <input type="text" id="link" name="link" placeholder="Telugu">
+        <input type="text" id="link" name="Telugu" placeholder="Telugu">
 
         <h4 style="text-decoration: underline;">PDF Link:</h4>
         <input type="text" id="pdf_link" name="pdf_link" placeholder="PDF Link" required>
@@ -326,111 +323,392 @@
         <!-- side Bar  -->
 
         <div id="nearest_places">
-            <h4>Nearest Places :</h4>
+            <h4>Nearest Places 1 :</h4>
             <div class="place-container" data-place="1">
                 <h4 class="Place_ss">Place 1:</h4>
                 <label for="s_name_1" class="Place_ss">Place Name:</label>
-                <input type="text" id="s_name_1" name="s_placename[]" required oninput="showSuggestions(this)"
+                <input type="text" id="s_name_1" name="s_placename[0]" required oninput="showSuggestions(this)"
                     placeholder="Place Name..">
                 <div class="suggestion-list"></div>
 
                 <label for="place_title_1" class="Place_ss">Place Title:</label>
-                <input type="text" id="place_title_1" name="place_title[]" placeholder="Place Title.." required>
+                <input type="text" id="place_title_1" name="place_title[0]" placeholder="Place Title.." required>
 
 
                 <label for="image_link_1" class="Place_ss">Image Link:</label>
-                <input type="text" id="image_link_1" name="image_link[]" placeholder="Image Link.." required>
-
+                <input type="text" id="image_link_1" name="image_link[0]" placeholder="Image Link.." required>
 
 
                 <div class="btn-container">
-                    <button class="remove-btn" onclick="removePlace(this)">Remove</button>
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 2:</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 2:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[0]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[0]" placeholder="Place Title.." >
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[0]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 3:</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 3:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[1]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[1]" placeholder="Place Title..">
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[1]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 4 :</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 4:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[2]" oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[2]" placeholder="Place Title..">
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[2]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 5 :</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 5:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[3]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[4]" placeholder="Place Title..">
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[5]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 6 :</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 6:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[6]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[6]" placeholder="Place Title.." >
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[6]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 7 :</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 7:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[7]" oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[7]" placeholder="Place Title.." >
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[7]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 8:</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 8:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[8]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[8]" placeholder="Place Title.." >
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[8]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+        <div id="nearest_places">
+            <h4>Nearest Places 9 :</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 9:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[9]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
+
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[9]" placeholder="Place Title.." >
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[9]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
                 </div>
             </div>
         </div>
 
-        <button class="add-btn" onclick="addPlace()">Add Place</button>
+        <div id="nearest_places">
+            <h4>Nearest Places 10 :</h4>
+            <div class="place-container" data-place="1">
+                <h4 class="Place_ss">Place 10:</h4>
+                <label for="s_name_1" class="Place_ss">Place Name:</label>
+                <input type="text" id="s_name_1" name="s_placename[10]"  oninput="showSuggestions(this)"
+                    placeholder="Place Name..">
+                <div class="suggestion-list"></div>
 
-        <p id="max-places-msg" class="max-places-message" style="display: none;">Maximum number of places (10) reached.
+                <label for="place_title_1" class="Place_ss">Place Title:</label>
+                <input type="text" id="place_title_1" name="place_title[10]" placeholder="Place Title.." >
+
+
+                <label for="image_link_1" class="Place_ss">Image Link:</label>
+                <input type="text" id="image_link_1" name="image_link[10]" placeholder="Image Link.." >
+
+
+                <div class="btn-container">
+                    <!-- <button class="remove-btn" onclick="removePlace(this)">Remove</button> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- <button class="add-btn" onclick="addPlace()">Add Place</button> -->
+        <!-- <p id="max-places-msg" class="max-places-message" style="display: none;">Maximum number of places (10) reached. -->
         </p>
 
         <br>
         <br>
 
-
         <!-- tag Places -->
         <div id="nearest_places_container">
-            <label>Tag Explore Places:</label>
+            <label>Tag Explore Destination:</label>
             <div class="place">
-                <input type="text" name="nearest_places[]" required oninput="showSuggestions(this)">
+                <label for="tag1">Destination 1</label>
+                <input type="text" id="tag1" name="nearest_places[1]" oninput="showSuggestions(this)">
                 <div class="suggestion-list"></div>
-                <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
             </div>
+            <div class="place">
+                <label for="tag1">Destination 2</label>
+                <input type="text" id="tag1" name="nearest_places[2]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 3</label>
+                <input type="text" id="tag1" name="nearest_places[3]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 4</label>
+                <input type="text" id="tag1" name="nearest_places[4]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 5</label>
+                <input type="text" id="tag1" name="nearest_places[6]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 6</label>
+                <input type="text" id="tag1" name="nearest_places[7]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 7</label>
+                <input type="text" id="tag1" name="nearest_places[8]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 8</label>
+                <input type="text" id="tag1" name="nearest_places[9]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 9</label>
+                <input type="text" id="tag1" name="nearest_places[10]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 10</label>
+                <input type="text" id="tag1" name="nearest_places[11]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 11</label>
+                <input type="text" id="tag1" name="nearest_places[12]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 12</label>
+                <input type="text" id="tag1" name="nearest_places[13]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 13</label>
+                <input type="text" id="tag1" name="nearest_places[14]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 14</label>
+                <input type="text" id="tag1" name="nearest_places[15]" oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+            <div class="place">
+                <label for="tag1">Destination 15</label>
+                <input type="text" id="tag1" name="nearest_places[0]"  oninput="showSuggestions(this)">
+                <div class="suggestion-list"></div>
+                <!-- <button type="button" onclick="Tag_place_remove(this.parentNode)" class="remove_d">Remove</button> -->
+            </div>
+
         </div>
-        <button class="add_place" type="button" onclick="add_ne_place()">Add Place</button><br><br>
         
+        <!-- <button class="add_place" type="button" onclick="add_ne_place()">Add Place</button><br><br> -->
 
 
         <input type="submit" value="Submit">
     </form>
 
+    <!-- script start -->
 
     <script>
-       
+        let tagPlaceCount = 1;
 
-    </script>
+        function add_ne_place() {
+            const container = document.getElementById('nearest_places_container');
+            const currentPlaces = container.getElementsByClassName('place');
 
-    <script>
-            // Function to add a new place input field
-    function add_ne_place() {
-        var container = document.getElementById('nearest_places_container');
-        var currentPlaces = container.getElementsByClassName('place');
+            // Check if the maximum limit of 15 places is reached
+            if (currentPlaces.length >= 15) {
+                alert('You have reached the maximum limit of 15 places.');
+                return;
+            }
 
-        // Check if the maximum limit of 15 places is reached
-        if (currentPlaces.length >= 15) {
-            alert('You have reached the maximum limit of 15 places.');
-            return;
+            tagPlaceCount++;
+
+            const placeDiv = document.createElement('div');
+            placeDiv.className = 'place';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = `nearest_places[${tagPlaceCount - 1}]`;
+            input.required = true;
+            input.oninput = function () {
+                showSuggestions(this);
+            };
+
+            const suggestionList = document.createElement('div');
+            suggestionList.className = 'suggestion-list';
+
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.innerHTML = 'Remove';
+            removeBtn.onclick = function () {
+                Tag_place_remove(placeDiv);
+            };
+
+            placeDiv.appendChild(input);
+            placeDiv.appendChild(suggestionList);
+            placeDiv.appendChild(removeBtn);
+            container.appendChild(placeDiv);
         }
 
-        var placeDiv = document.createElement('div');
-        placeDiv.className = 'place';
+        // Function to remove a place input field
+        function Tag_place_remove(placeDiv) {
+            placeDiv.parentNode.removeChild(placeDiv);
+        }
 
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.name = 'nearest_places[]';
-        input.required = true;
-        input.oninput = function () {
-            showSuggestions(this);
-        };
+        // Function to show autocomplete suggestions for nearest places
+        function showSuggestions(input) {
+            var inputValue = input.value.trim();
+            var suggestionList = input.parentNode.querySelector('.suggestion-list');
 
-        var suggestionList = document.createElement('div');
-        suggestionList.className = 'suggestion-list';
-
-        var removeBtn = document.createElement('button');
-        removeBtn.type = 'button';
-        removeBtn.innerHTML = 'Remove';
-        removeBtn.onclick = function () {
-            Tag_place_remove(placeDiv);
-        };
-
-        placeDiv.appendChild(input);
-        placeDiv.appendChild(suggestionList);
-        placeDiv.appendChild(removeBtn);
-        container.appendChild(placeDiv);
-    }
-
-    // Function to remove a place input field
-    function Tag_place_remove(placeDiv) {
-        placeDiv.parentNode.removeChild(placeDiv);
-    }
-
-    // Function to show autocomplete suggestions for nearest places
-    function showSuggestions(input) {
-        var inputValue = input.value.trim();
-        var suggestionList = input.parentNode.querySelector('.suggestion-list');
-
-        // Clear previous suggestions
-        suggestionList.innerHTML = '';
+            // Clear previous suggestions
+            suggestionList.innerHTML = '';
 
             // List of suggestion places
             var suggestionPlaces = [
@@ -487,260 +765,152 @@
             ];
 
             suggestionPlaces.forEach(function (suggestion) {
-            if (suggestion.toLowerCase().startsWith(inputValue.toLowerCase())) {
-                var suggestionItem = document.createElement('div');
-                suggestionItem.className = 'suggestion-item';
-                suggestionItem.innerHTML = suggestion;
-                suggestionItem.onclick = function () {
-                    input.value = suggestion;
-                    suggestionList.innerHTML = '';
-                };
-                suggestionList.appendChild(suggestionItem);
-            }
-        });
+                if (suggestion.toLowerCase().startsWith(inputValue.toLowerCase())) {
+                    var suggestionItem = document.createElement('div');
+                    suggestionItem.className = 'suggestion-item';
+                    suggestionItem.innerHTML = suggestion;
+                    suggestionItem.onclick = function () {
+                        input.value = suggestion;
+                        suggestionList.innerHTML = '';
+                    };
+                    suggestionList.appendChild(suggestionItem);
+                }
+            });
 
-        if (inputValue === '') {
-            suggestionList.innerHTML = '';
+            if (inputValue === '') {
+                suggestionList.innerHTML = '';
+            }
         }
-    }
 
 
         // side bar Nearest place saggestion
 
     </script>
     <!-- side bar add place script -->
+    
+
     <script>
-        let placeCount = 0;
+        function validateForm() {
+            // Form validation code...
 
-        function addPlace() {
-            if (placeCount >= 10) {
-                document.getElementById("max-places-msg").style.display = "block";
-                return; // Maximum 10 places allowed
+            return true; // Form is valid
+        }
+
+        // Submit form when Enter key is pressed
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent default form submission behavior
+
+                if (validateForm()) {
+                    // Form is valid, submit to the backend
+                    // Replace 'process_form.php' with the actual URL or file name to handle the form submission
+                    document.getElementById("project_form").action = "process_form.php";
+                    document.getElementById("project_form").submit();
+                } else {
+                    alert("Form validation failed. Please check the form fields.");
+                }
             }
+        });
 
-            placeCount++;
-
-            const placeContainer = document.createElement("div");
-            placeContainer.classList.add("place-container");
-            placeContainer.setAttribute("data-place", placeCount);
-
-            const placeHeading = document.createElement("h4");
-            placeHeading.innerText = `Place ${placeCount}:`;
-
-            const nameLabel = document.createElement("label");
-            nameLabel.setAttribute("for", `s_name_${placeCount}`);
-            nameLabel.innerText = "Place Name:";
-
-            const nameInput = document.createElement("input");
-            nameInput.setAttribute("type", "text");
-            nameInput.setAttribute("id", `s_name_${placeCount}`);
-            nameInput.setAttribute("name", "s_placename[]");
-            nameInput.setAttribute("required", "required");
-            nameInput.setAttribute("oninput", "showSuggestions(this)");
-            nameInput.setAttribute("placeholder", "Place Name..");
-
-            const suggestionList = document.createElement("div");
-            suggestionList.classList.add("suggestion-list");
-
-            const imageLabel = document.createElement("label");
-            imageLabel.setAttribute("for", `image_link_${placeCount}`);
-            imageLabel.innerText = "Image Link:";
-
-            const imageInput = document.createElement("input");
-            imageInput.setAttribute("type", "text");
-            imageInput.setAttribute("id", `image_link_${placeCount}`);
-            imageInput.setAttribute("name", "image_link[]");
-            imageInput.setAttribute("placeholder", "Image Link..");
-            imageInput.setAttribute("required", "required");
-
-            const titleLabel = document.createElement("label");
-            titleLabel.setAttribute("for", `place_title_${placeCount}`);
-            titleLabel.innerText = "Place Title:";
-
-            const titleInput = document.createElement("input");
-            titleInput.setAttribute("type", "text");
-            titleInput.setAttribute("id", `place_title_${placeCount}`);
-            titleInput.setAttribute("name", "place_title[]");
-            titleInput.setAttribute("placeholder", "Place Title..");
-            titleInput.setAttribute("required", "required");
-
-            const btnContainer = document.createElement("div");
-            btnContainer.classList.add("btn-container");
-
-            const removeButton = document.createElement("button");
-            removeButton.classList.add("remove-btn");
-            removeButton.innerText = "Remove";
-            removeButton.addEventListener("click", () => {
-                placeContainer.remove();
-                updatePlaceNumbers();
-                document.getElementById("max-places-msg").style.display = "none";
-            });
-
-            placeContainer.appendChild(placeHeading);
-            placeContainer.appendChild(nameLabel);
-            placeContainer.appendChild(nameInput);
-            placeContainer.appendChild(suggestionList);
-            placeContainer.appendChild(imageLabel);
-            placeContainer.appendChild(imageInput);
-            placeContainer.appendChild(titleLabel);
-            placeContainer.appendChild(titleInput);
-            btnContainer.appendChild(removeButton);
-            placeContainer.appendChild(btnContainer);
-
-            document.getElementById("nearest_places").appendChild(placeContainer);
-
-            updatePlaceNumbers();
-        }
-
-        function updatePlaceNumbers() {
-            const placeContainers = document.querySelectorAll(".place-container");
-            placeContainers.forEach((container, index) => {
-                container.setAttribute("data-place", index + 1);
-                container.querySelector("h4").innerText = `Place ${index + 1}:`;
-            });
-        }
-
+        // Remove place function
         function removePlace(button) {
-            const placeContainer = button.closest(".place-container");
-            placeContainer.remove();
-            updatePlaceNumbers();
-            document.getElementById("max-places-msg").style.display = "none";
+            var placeContainer = button.parentNode.parentNode;
+            if (placeContainer.getAttribute("data-place") !== "1") {
+                placeContainer.remove();
+            } else {
+                alert("Cannot remove initial place.");
+            }
         }
     </script>
-
-
-<script>
-    function validateForm() {
-        // Form validation code...
-
-        return true; // Form is valid
-    }
-
-    // Submit form when Enter key is pressed
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Prevent default form submission behavior
-
-            if (validateForm()) {
-                // Form is valid, submit to the backend
-                // Replace 'process_form.php' with the actual URL or file name to handle the form submission
-                document.getElementById("project_form").action = "process_form.php";
-                document.getElementById("project_form").submit();
-            } else {
-                alert("Form validation failed. Please check the form fields.");
+    <!-- validate -->
+    <script>
+        function validateForm() {
+            // Place Name validation
+            var placeName = document.getElementById("place_name").value;
+            if (placeName.length < 3) {
+                alert("Place Name should have at least 3 letters.");
+                return false;
             }
-        }
-    });
-
-    // Remove place function
-    function removePlace(button) {
-        var placeContainer = button.parentNode.parentNode;
-        if (placeContainer.getAttribute("data-place") !== "1") {
-            placeContainer.remove();
-        } else {
-            alert("Cannot remove initial place.");
-        }
-    }
-</script>
-<!-- validate -->
-<script>
-    function validateForm() {
-        // Place Name validation
-        var placeName = document.getElementById("place_name").value;
-        if (placeName.length < 3) {
-            alert("Place Name should have at least 3 letters.");
-            return false;
-        }
-        if (placeName.length > 45) {
-            alert("Place Name should not exceed 45 characters.");
-            return false;
-        }
-
-        // Group Id validation
-        var groupId = document.getElementById("place_id").value;
-        if (groupId.length < 6 || !/^[A-Za-z]{4}[0-9]+$/.test(groupId)) {
-            alert("Group Id should have at least 6 characters, starting with 4 alphabets and followed by numerals.");
-            return false;
-        }
-
-        // Check for special characters and spaces in Group Id
-        if (/[^\w\d]/.test(groupId)) {
-            alert("Group Id should not contain special characters or spaces.");
-            return false;
-        }
-
-        // Image Link validation
-        var imageLink = document.getElementById("link").value;
-        if (imageLink.trim() === "") {
-            alert("Image Link is required.");
-            return false;
-        }
-
-        // Place Title validation
-        var placeTitle = document.getElementById("place_title_1").value;
-        if (placeTitle.length > 80) {
-            alert("Place Title should not exceed 80 characters.");
-            return false;
-        }
-
-        // Best Time validation
-        var bestTimeStart = document.getElementById("best_time_start").value;
-        var bestTimeEnd = document.getElementById("best_time_end").value;
-        if (bestTimeStart === bestTimeEnd) {
-            alert("Best Time start and end months should not be the same.");
-            return false;
-        }
-
-        // Article validation
-        var article = document.getElementById("Tipes").value;
-        if (article.trim() === "") {
-            alert("Article is required.");
-            return false;
-        }
-
-        // Safety Measures validation
-        var safetyMeasures = document.getElementById("article").value;
-        if (safetyMeasures.trim() === "") {
-            alert("Safety Measures is required.");
-            return false;
-        }
-
-        // PDF Link validation
-        var pdfLink = document.getElementById("pdf_link").value;
-        if (pdfLink.trim() === "") {
-            alert("PDF Link is required.");
-            return false;
-        }
-
-        return true; // Form is valid
-    }
-
-     // Submit form when Enter key is pressed
-     document.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Prevent default form submission behavior
-
-            if (validateForm()) {
-                // Form is valid, submit to the backend
-                // Replace 'process_form.php' with the actual URL or file name to handle the form submission
-                document.getElementById("project_form").action = "process_form.php";
-                document.getElementById("project_form").submit();
-            } else {
-                alert("Form validation failed. Please check the form fields.");
+            if (placeName.length > 45) {
+                alert("Place Name should not exceed 45 characters.");
+                return false;
             }
+
+            // Group Id validation
+            var groupId = document.getElementById("place_id").value;
+            if (groupId.length < 6 || !/^[A-Za-z]{4}[0-9]+$/.test(groupId)) {
+                alert("Group Id should have at least 6 characters, starting with 4 alphabets and followed by numerals.");
+                return false;
+            }
+
+            // Check for special characters and spaces in Group Id
+            if (/[^\w\d]/.test(groupId)) {
+                alert("Group Id should not contain special characters or spaces.");
+                return false;
+            }
+
+            // Image Link validation
+            var imageLink = document.getElementById("link").value;
+            if (imageLink.trim() === "") {
+                alert("Image Link is required.");
+                return false;
+            }
+
+            // Place Title validation
+            var placeTitle = document.getElementById("place_title_1").value;
+            if (placeTitle.length > 80) {
+                alert("Place Title should not exceed 80 characters.");
+                return false;
+            }
+
+            // Best Time validation
+            var bestTimeStart = document.getElementById("best_time_start").value;
+            var bestTimeEnd = document.getElementById("best_time_end").value;
+            if (bestTimeStart === bestTimeEnd) {
+                alert("Best Time start and end months should not be the same.");
+                return false;
+            }
+
+            // Article validation
+            var article = document.getElementById("Tipes").value;
+            if (article.trim() === "") {
+                alert("Article is required.");
+                return false;
+            }
+
+            // Safety Measures validation
+            var safetyMeasures = document.getElementById("article").value;
+            if (safetyMeasures.trim() === "") {
+                alert("Safety Measures is required.");
+                return false;
+            }
+
+            // PDF Link validation
+            var pdfLink = document.getElementById("pdf_link").value;
+            if (pdfLink.trim() === "") {
+                alert("PDF Link is required.");
+                return false;
+            }
+
+            return true; // Form is valid
         }
-    });
-       // Form submission on Submit button click
-       document.getElementById("project_form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        if (validateForm()) {
-            // Form is valid, redirect to the successful.html page
-            window.location.href = "ok.html";
-        } else {
-            alert("Form validation failed. Please check the form fields.");
-        }
-    });
-</script>
+
+        // Submit form when Enter key is pressed
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent default form submission behavior
+
+                if (validateForm()) {
+                    // Form is valid, submit to the backend
+                    // Replace 'process_form.php' with the actual URL or file name to handle the form submission
+                    document.getElementById("project_form").action = "process_form.php";
+                    document.getElementById("project_form").submit();
+                } else {
+                    alert("Form validation failed. Please check the form fields.");
+                }
+            }
+        });
+    </script>
 
 
 
